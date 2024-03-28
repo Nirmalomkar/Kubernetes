@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: service
 metadata:
-  name: NodePortsvc
+  name: nodeportsvc
 spec:
   selector:
     app: new-app
