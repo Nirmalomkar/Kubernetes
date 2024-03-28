@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: service
+metadata:
+  name: NodePortsvc
+spec:
+  selector:
+    app: new-app
+  ports:
+    -protocol: TCP
+    port: 80
+    targetPort: 80
+    name: nginx
+
+
