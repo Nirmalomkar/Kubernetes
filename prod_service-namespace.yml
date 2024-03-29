@@ -8,12 +8,19 @@ metadata:
     app: namespce
 spec:
   containers:
+  # Nginx Container
   - name: nginx
     image: nginx:latest
     ports:
     - containerPort: 80
       protocol: TCP
       name: nginx
+  - name: tomcat
+    # Tomcat Container
+    image: tomcat:latest
+    ports:
+    - containerPort: 8080
+      protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -25,7 +32,17 @@ spec:
   selector:
     app: namespce
   ports:
+  # Nginx
   - port: 80
     targetPort: 80
     protocol: TCP
+    name: nginx
+
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    name: tomcat
+
+
+
 
