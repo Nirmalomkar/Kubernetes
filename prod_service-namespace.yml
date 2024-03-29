@@ -8,19 +8,26 @@ metadata:
     app: namespce
 spec:
   containers:
-  # Nginx Container
-  - name: nginx
+  - name: nginx # Nginx Container
     image: nginx:latest
     ports:
     - containerPort: 80
       protocol: TCP
       name: nginx
-  - name: tomcat
-    # Tomcat Container
+
+  - name: tomcat # Tomcat Container
     image: tomcat:latest
     ports:
     - containerPort: 8080
       protocol: TCP
+
+  - name: DB # Database
+    image: crate:latest
+    ports:
+    - containerPort: 4200
+      protocol: TCP
+
+
 ---
 apiVersion: v1
 kind: Service
@@ -32,16 +39,20 @@ spec:
   selector:
     app: namespce
   ports:
-  # Nginx
-  - port: 80
+  - port: 80 # Nginx
     targetPort: 80
     protocol: TCP
     name: nginx
 
-  - port: 8080
+  - port: 8080 #Tomcat 
     protocol: TCP
     targetPort: 8080
     name: tomcat
+
+  - port: 4200 #database 
+    protocol: TCP
+    targetPort: 4200
+    name: DB
 
 
 
