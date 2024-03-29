@@ -21,7 +21,7 @@ spec:
     - containerPort: 8080
       protocol: TCP
 
-  - name: DB # Database
+  - name: db # Database
     image: crate:latest
     ports:
     - containerPort: 4200
@@ -52,7 +52,7 @@ spec:
   - port: 4200 #database 
     protocol: TCP
     targetPort: 4200
-    name: DB
+    name: db
 
 
 
