@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind:  ReplicaSet
 metadata: 
-  name: Omii-replica-set
+  name: Omiireplica-set
   labels:
     app: Omii
 spec:
     selector: 
       matchExpressions:      
          #-  { key: app, operator: In , values: [rsapp,  new-app]}
-         -  { key: app, operator: In , values: [Omii, new-app]}
+         -  { key: app, operator: In , values: [Omiireplica-set, new-app]}
     #matchLabels: 
           #app: rsapp
     replicas: 5
