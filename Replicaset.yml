@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind:  ReplicaSet
 metadata: 
-  name: Omiireplica-set
+  name: omiireplica-set
   labels:
-    app: Omii
+    app: omii
 spec:
     selector: 
       matchExpressions:      
          #-  { key: app, operator: In , values: [rsapp,  new-app]}
-         -  { key: app, operator: In , values: [Omiireplica-set, new-app]}
+         -  { key: app, operator: In , values: [omiireplica-set, new-app]}
     #matchLabels: 
           #app: rsapp
     replicas: 5
@@ -16,7 +16,7 @@ spec:
       metadata:
         labels:
           name: nginxapp
-          app: Omii
+          app: omii
       spec:
         containers:
           - name: nginxapp
