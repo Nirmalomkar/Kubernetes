@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: rpc
+  name: Replicacontrollers 
   labels:
     app: rpcapp
 spec: 
