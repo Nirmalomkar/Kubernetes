@@ -8,12 +8,12 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 2
+      maxSurge: 1
       maxUnavailable: 1
   selector:
     matchLabels:
       app: deployapp
-  replicas: 10
+  replicas: 3
   template:
     metadata:
       labels:
