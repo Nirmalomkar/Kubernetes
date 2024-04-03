@@ -4,7 +4,7 @@ metadata:
   name: nodesvc
 spec:
   selector:
-    app: deployapp
+    app: new-app
   type: NodePort
   ports:
     - protocol: TCP
