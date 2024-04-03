@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+  labels:
+    app: deployapp
+  spec:
+    strategy:
+      type: RollingUpdate
+      RollingUpdate:
+        maxSurge: 2
+        maxUnavailable: 1
+
+    selector:
+      matchLabel:
+        app: deployapp
+    replicas: 10
+    template:
+      metadata:
+        labels:
+          name: nginxapp
+          app: depapp
+      spec:
+        containers:
+        - name: nginxapp
+          image: nginx:latest
+          ports:
+          - containerPort: 80
+            protocol: TCP
+
+
