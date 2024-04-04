@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql
+        image: tomcat #mysql
         ports:
-        - containerPort: 3306
+        - containerPort: 8080 #3306
           protocol: TCP
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "1234"
+        #env:
+       # - name: MYSQL_ROOT_PASSWORD
+        #  value: "1234"
