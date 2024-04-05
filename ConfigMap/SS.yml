@@ -1,30 +1,29 @@
-apiVersion: apps/v1 
-kind: StatefulSet
-metadata:
+apiVersion: apps/v1
+kind:  StatefulSet
+metadata: 
   name: statefull
   labels:
-    app: configapp
+    app: depapp
 spec:
-  selector:
-    matchLabels:
-      app: configapp
-  replicas: 4
-  template:
+    selector: 
+      matchLabels: 
+          app: depapp
+    replicas: 4
+    template:
       metadata:
         labels:
-          name: mysqldatabase
-          app: configapp
+          name: mdb
+          app: depapp
       spec:
         containers:
-          -name: mysql
-          image: mysql
-          ports:
-            -containerPort: 3306
-            protocol: TCP
-          env:
-            -name: MYSQL_ROOT_PASSWORD
-            ValueForm:
-              configMapKeyRef:
-                name: config
-                key: rootpw
-
+          - name: mysql
+            image: mysql
+            ports:
+                - containerPort: 3306
+                  protocol: TCP
+            env:
+                 - name: MYSQL_ROOT_PASSWORD
+                   valueFrom:
+                        configMapKeyRef:
+                          name: config
+                          key: rootpw
