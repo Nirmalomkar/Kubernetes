@@ -9,7 +9,7 @@ spec:
     matchLabels:
       app: configapp
   replicas: 4
-    template:
+  template:
       metadata:
         labels:
           name: mysqldatabase
