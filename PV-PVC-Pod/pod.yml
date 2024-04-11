@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: om-pod
+spec:
+  volumes:
+  - name: om-pod
+    persistentVolumeClaim:
+      claimName: sh-pv-claim
+  containers:
+  - name: myfrontend
+    image: nginx
+    volumeMounts:
+    - mountPath: "/var/www/html"
+      name: om-pod
+    ports:
+    - containerPort: 80
+      protocol: TCP
